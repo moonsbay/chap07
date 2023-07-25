@@ -60,10 +60,10 @@ public class AlphaMoveExample3 {
 				alphaMove.left();
 				break;
 			case Up:
-		       alphaMove.up();
-		       break;
+		        alphaMove.up();
+		        break;
 			default:
-				break;
+				break;   
 			}
 			
 			if(alphaMove.getLine()==1 && alphaMove.getColumn()==1) {
@@ -75,7 +75,7 @@ public class AlphaMoveExample3 {
 			else if(alphaMove.getLine()==20 && alphaMove.getColumn()==40)
 				direction = Direction.Left;
 			else if(alphaMove.getLine()==20 && alphaMove.getColumn()==1)
-				direction = Direction.Up;
+				direction = Direction.Up; 
 			
 			if(count == 2) {
 				   alphaMove.hide();
@@ -97,7 +97,7 @@ public class AlphaMoveExample3 {
 		
 		VT100.clearScreen();
 		
-		for(int i=0; i<100; i++) {
+		for(int i=0; i<10; i++) {
 		MoveTimerTask t = new MoveTimerTask();
 		int speed = (int)(Math.random()*300+10);
 		timer.schedule(t, 0, speed); // null에 TimerTask 인스턴스가 와야한다
