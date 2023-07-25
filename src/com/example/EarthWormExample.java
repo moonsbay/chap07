@@ -5,16 +5,17 @@ import util.VT100;
 
 public class EarthWormExample {
 	
-	
-	
 	enum Direction{Up, Down, Left, Right
 		
 	}
 	
     static class Worm extends Alpha{
     	final Direction direction;
-    	int nowline;
-    	int nowcolumn;
+ //   	int nowline;
+ //   	int nowcolumn;
+ //   	int nowfg;
+ //   	int nowbg;
+ //   	int nowch;
     	public Worm() {
     	   line = (int)(Math.random()*20 + 1);
     	   column = (int)(Math.random()*40 + 1);
@@ -68,15 +69,18 @@ public class EarthWormExample {
     
 	public static void main(String[] args) throws InterruptedException {
 		VT100.clearScreen();
-		int nowline;
-		int nowcolumn;
+		
 		Worm ss = new Worm();
 		for(int i=0; i<5; i++) {
 		   ss.move();
 		   Thread.sleep(500);		  
 		   if(i==4) {
-			 ss.nowline = ss.getLine();
-		     ss.nowcolumn = ss.getColumn();
+//			 ss.nowline = ss.getLine();
+//		     ss.nowcolumn = ss.getColumn();
+//		     ss.nowbg = ss.getBg();
+//		     ss.nowfg = ss.getFg();
+//		     ss.nowch = ss.getCh();
+		   
 		   }
 		}
 		VT100.reset();
