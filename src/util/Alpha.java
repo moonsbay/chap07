@@ -3,8 +3,8 @@ package util;
 public class Alpha {
 	protected int line;
 	protected int column;
-	protected Color fg;
-	protected Color bg;
+	protected  Color fg;
+	protected  Color bg;
 	protected char ch;
 
 	

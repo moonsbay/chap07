@@ -1,6 +1,7 @@
 package com.example;
 
 import util.Alpha;
+import util.Color;
 import util.VT100;
 
 public class EarthWormExample {
@@ -10,22 +11,22 @@ public class EarthWormExample {
 	}
 	
     static class Worm extends Alpha{
-    	final Direction direction;
- //   	int nowline;
- //   	int nowcolumn;
- //   	int nowfg;
- //   	int nowbg;
- //   	int nowch;
+    	Direction direction;
+    	int nowline;
+   	    int nowcolumn;
+        Color nowfg;
+    	Color nowbg;
+    	char nowch;
     	public Worm() {
     	   line = (int)(Math.random()*20 + 1);
     	   column = (int)(Math.random()*40 + 1);
     	   direction = Direction.values()[(int)(Math.random()*4)];
     	   show();
     	}
-    	public Worm(int nowline, int nowcolumn) {
+    	public void Worm_next(int nowline, int nowcolumn) {
     		line = nowline;
     		column = nowcolumn;
-    		direction = Direction.values()[(int)(Math.random()*4)];
+    	    direction = Direction.values()[(int)(Math.random()*4)];
       	    show();
     	}
     	void right() {
@@ -73,15 +74,16 @@ public class EarthWormExample {
 		Worm ss = new Worm();
 		for(int i=0; i<5; i++) {
 		   ss.move();
-		   Thread.sleep(500);		  
+		   Thread.sleep(500);
+		   ss.nowbg = ss.getBg();
+		   ss.nowfg = ss.getFg();
+		   ss.nowch = ss.getCh();
 		   if(i==4) {
-//			 ss.nowline = ss.getLine();
-//		     ss.nowcolumn = ss.getColumn();
-//		     ss.nowbg = ss.getBg();
-//		     ss.nowfg = ss.getFg();
-//		     ss.nowch = ss.getCh();
-		   
+			   ss.nowline = ss.getLine();
+			   ss.nowcolumn = ss.getColumn();
+			   ss.Worm_next(ss.nowline, ss.nowcolumn);
 		   }
+		   
 		}
 		VT100.reset();
 
